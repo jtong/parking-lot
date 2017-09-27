@@ -32,7 +32,7 @@ public class ParkingLot {
         return this.rooms.remove(parkingTicket);
     }
 
-    public int getLeft() {
-        return this.size - this.rooms.size();
+    public boolean containVehicle(String parkingTicket) {
+        return this.rooms.containsKey(parkingTicket);
     }
 }

@@ -9,7 +9,7 @@ import static org.junit.Assert.fail;
 
 public class ParkingLotTest {
     @Test
-    public void should_car_can_be_parked_when_there_is_enough_rooms() {
+    public void should_vehicle_can_be_parked_when_there_is_enough_rooms() {
         ParkingLot parkingLot = new ParkingLot(3);
         Vehicle vehicle = new Vehicle();
 
@@ -21,7 +21,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    public void should_car_can_not_be_parked_when_there_is_no_enough_rooms() {
+    public void should_vehicle_can_not_be_parked_when_there_is_no_enough_rooms() {
         ParkingLot parkingLot = new ParkingLot(1);
         Vehicle vehicle = new Vehicle();
 
@@ -76,7 +76,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    public void should_car_can_be_parked_when_parking_lot_which_was_full_is_gotten_a_car() {
+    public void should_vehicle_can_be_parked_when_parking_lot_which_was_full_is_gotten_a_vehicle() {
         ParkingLot parkingLot = new ParkingLot(1);
         Vehicle firstVehicle = new Vehicle();
         Vehicle secondVehicle = new Vehicle();
@@ -88,5 +88,15 @@ public class ParkingLotTest {
         } catch (NoEnoughRoomsException e) {
             fail();
         }
+    }
+
+    @Test
+    public void should_tell_true_if_parking_lot_contain_a_vehicle(){
+        ParkingLot parkingLot = new ParkingLot(2);
+
+        Vehicle vehicle = new Vehicle();
+        String parkingTicket = parkingLot.park(vehicle);
+
+        assertThat(parkingLot.containVehicle(parkingTicket), is(true));
     }
 }
