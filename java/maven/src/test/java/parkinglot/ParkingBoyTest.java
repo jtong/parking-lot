@@ -1,6 +1,6 @@
 package parkinglot;
 
-import org.hamcrest.core.IsNot;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
@@ -10,6 +10,15 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
 public class ParkingBoyTest {
+
+    protected ParkingBoyFactory parkingBoyFactory;
+
+    @Before
+    public void before(){
+        parkingBoyFactory = new NormalParkingBoyFactory();
+    }
+    
+    
     @Test
     public void should_vehicle_can_be_parking_when_there_is_enough_rooms_in_any_parking_lot(){
         ParkingLot firstParkingLot = new ParkingLot(1);
@@ -17,7 +26,7 @@ public class ParkingBoyTest {
         Vehicle firstVehicle = new Vehicle();
         Vehicle secondVehicle = new Vehicle();
 
-        ParkingBoy parkingBoy = new ParkingBoy(firstParkingLot, secondParkingLot);
+        ParkingBoy parkingBoy = parkingBoyFactory.makeParkingBoy(firstParkingLot, secondParkingLot);
 
         try {
             parkingBoy.park(firstVehicle);
@@ -48,7 +57,7 @@ public class ParkingBoyTest {
         ParkingLot secondParkingLot = new ParkingLot(1);
         Vehicle firstVehicle = new Vehicle();
 
-        ParkingBoy parkingBoy = new ParkingBoy(firstParkingLot, secondParkingLot);
+        ParkingBoy parkingBoy = parkingBoyFactory.makeParkingBoy(firstParkingLot, secondParkingLot);
         parkingBoy.park(firstVehicle);
         assertThat(parkingBoy.isFull(), is(false));
     }
@@ -60,7 +69,7 @@ public class ParkingBoyTest {
         Vehicle firstVehicle = new Vehicle();
         Vehicle secondVehicle = new Vehicle();
 
-        ParkingBoy parkingBoy = new ParkingBoy(firstParkingLot, secondParkingLot);
+        ParkingBoy parkingBoy = parkingBoyFactory.makeParkingBoy(firstParkingLot, secondParkingLot);
         parkingBoy.park(firstVehicle);
         parkingBoy.park(secondVehicle);
 
@@ -71,7 +80,7 @@ public class ParkingBoyTest {
     public void should_get_parked_vehicle_with_ticket_after_parking_in_any_parking_lot(){
         ParkingLot firstParkingLot = new ParkingLot(1);
         ParkingLot secondParkingLot = new ParkingLot(1);
-        ParkingBoy parkingBoy = new ParkingBoy(firstParkingLot, secondParkingLot);
+        ParkingBoy parkingBoy = parkingBoyFactory.makeParkingBoy(firstParkingLot, secondParkingLot);
         Vehicle firstVehicle = new Vehicle();
         Vehicle secondVehicle = new Vehicle();
 
@@ -87,7 +96,7 @@ public class ParkingBoyTest {
     public void should_get_null_with_ticket_which_is_not_exist() {
         ParkingLot firstParkingLot = new ParkingLot(1);
         ParkingLot secondParkingLot = new ParkingLot(1);
-        ParkingBoy parkingBoy = new ParkingBoy(firstParkingLot, secondParkingLot);
+        ParkingBoy parkingBoy = parkingBoyFactory.makeParkingBoy(firstParkingLot, secondParkingLot);
 
         Vehicle firstVehicle = new Vehicle();
         Vehicle secondVehicle = new Vehicle();
@@ -103,7 +112,7 @@ public class ParkingBoyTest {
     public void should_one_ticket_can_only_get_once(){
         ParkingLot firstParkingLot = new ParkingLot(1);
         ParkingLot secondParkingLot = new ParkingLot(1);
-        ParkingBoy parkingBoy = new ParkingBoy(firstParkingLot, secondParkingLot);
+        ParkingBoy parkingBoy = parkingBoyFactory.makeParkingBoy(firstParkingLot, secondParkingLot);
 
         Vehicle firstVehicle = new Vehicle();
         Vehicle secondVehicle = new Vehicle();
@@ -119,7 +128,7 @@ public class ParkingBoyTest {
     public void should_vehicle_can_be_parked_when_parking_lot_which_was_full_is_gotten_a_vehicle() {
         ParkingLot firstParkingLot = new ParkingLot(1);
         ParkingLot secondParkingLot = new ParkingLot(1);
-        ParkingBoy parkingBoy = new ParkingBoy(firstParkingLot, secondParkingLot);
+        ParkingBoy parkingBoy = parkingBoyFactory.makeParkingBoy(firstParkingLot, secondParkingLot);
 
         Vehicle firstVehicle = new Vehicle();
         Vehicle secondVehicle = new Vehicle();
