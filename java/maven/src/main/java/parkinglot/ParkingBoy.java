@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class ParkingBoy {
-    private List<ParkingLot> parkingLots;
+    protected List<ParkingLot> parkingLots;
 
     public ParkingBoy(ParkingLot... parkingLots) {
         this.parkingLots = Arrays.asList(parkingLots);

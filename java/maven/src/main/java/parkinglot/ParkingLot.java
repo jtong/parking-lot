@@ -35,4 +35,8 @@ public class ParkingLot {
     public boolean containVehicle(String parkingTicket) {
         return this.rooms.containsKey(parkingTicket);
     }
+
+    public int getLeft() {
+        return this.size - this.rooms.size();
+    }
 }

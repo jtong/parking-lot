@@ -99,4 +99,40 @@ public class ParkingLotTest {
 
         assertThat(parkingLot.containVehicle(parkingTicket), is(true));
     }
+
+    @Test
+    public void should_get_left_as_empty_room_size_of_a_parking_lot(){
+        ParkingLot parkingLot = new ParkingLot(2);
+
+        Vehicle vehicle = new Vehicle();
+        parkingLot.park(vehicle);
+
+        assertThat(parkingLot.getLeft(), is(1));
+    }
+
+    @Test
+    public void should_get_left_recovered_after_get_a_vehicle_from_a_parking_lot(){
+        ParkingLot parkingLot = new ParkingLot(2);
+
+        Vehicle vehicle = new Vehicle();
+        String ticket = parkingLot.park(vehicle);
+        parkingLot.getVehicle(ticket);
+
+        assertThat(parkingLot.getLeft(), is(2));
+    }
+
+    @Test
+    public void should_always_be_zero_after_parking_a_vehicl_to_a_full_parking_lot_and_handled_exception(){
+        ParkingLot parkingLot = new ParkingLot(1);
+        Vehicle vehicle = new Vehicle();
+
+        try {
+            parkingLot.park(vehicle);
+            parkingLot.park(vehicle);
+            fail();
+        } catch (NoEnoughRoomsException e) {
+
+        }
+        assertThat(parkingLot.getLeft(), is(0));
+    }
 }
