@@ -39,4 +39,8 @@ public class ParkingLot {
     public int getLeft() {
         return this.size - this.rooms.size();
     }
+
+    public double getEmptyRate() {
+        return this.getLeft() / this.size;
+    }
 }
