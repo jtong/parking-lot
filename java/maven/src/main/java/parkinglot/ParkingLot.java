@@ -36,6 +36,12 @@ public class ParkingLot implements Parkable{
         return this.rooms.containsKey(parkingTicket);
     }
 
+    @Override
+    public ParkingReport calculateParkingReport() {
+        ParkingReport result = new ParkingReport("P", this.size -this.getLeft(), this.size);
+        return result;
+    }
+
     public int getLeft() {
         return this.size - this.rooms.size();
     }

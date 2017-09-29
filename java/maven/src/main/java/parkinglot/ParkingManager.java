@@ -4,6 +4,7 @@ package parkinglot;
 import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 public class ParkingManager {
 
@@ -43,4 +44,8 @@ public class ParkingManager {
     }
 
 
+    public ParkingReport calculateParkingReport() {
+        List<ParkingReport> parkingReports = this.parkables.stream().map((Parkable parkable) -> parkable.calculateParkingReport()).collect(Collectors.toList());
+        return new ParkingReport("M",parkingReports);
+    }
 }

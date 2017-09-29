@@ -8,4 +8,6 @@ public interface Parkable {
     Vehicle getVehicle(String parkingTicket);
 
     boolean containVehicle(String parkingTicket);
+
+    ParkingReport calculateParkingReport();
 }
