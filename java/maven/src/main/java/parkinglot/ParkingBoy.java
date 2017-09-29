@@ -4,13 +4,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public class ParkingBoy {
+public class ParkingBoy implements Parkable {
     protected List<ParkingLot> parkingLots;
 
     public ParkingBoy(ParkingLot... parkingLots) {
         this.parkingLots = Arrays.asList(parkingLots);
     }
 
+    @Override
     public String park(Vehicle vehicle) throws NoEnoughRoomsException {
 
         ParkingLot currentParkingLot = null;
@@ -24,10 +25,12 @@ public class ParkingBoy {
         return currentParkingLot.park(vehicle);
     }
 
+    @Override
     public boolean isFull() {
         return parkingLots.stream().allMatch((ParkingLot parkingLot) -> parkingLot.isFull());
     }
 
+    @Override
     public Vehicle getVehicle(String parkingTicket) {
         ParkingLot currentParkingLot = null;
         try {
@@ -38,5 +41,10 @@ public class ParkingBoy {
             return null;
         }
         return currentParkingLot.getVehicle(parkingTicket);
+    }
+
+    @Override
+    public boolean containVehicle(String parkingTicket) {
+        return parkingLots.stream().anyMatch((ParkingLot parkingLot) -> parkingLot.containVehicle(parkingTicket));
     }
 }

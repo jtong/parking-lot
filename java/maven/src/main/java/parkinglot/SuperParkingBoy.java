@@ -13,7 +13,7 @@ public class SuperParkingBoy extends ParkingBoy {
         ParkingLot currentParkingLot = null;
         try {
             currentParkingLot = parkingLots.stream()
-                    .filter((ParkingLot parkingLot) -> !parkingLot.isFull())
+                    .filter((Parkable parkingLot) -> !parkingLot.isFull())
                     .sorted(Comparator.comparing(ParkingLot::getEmptyRate).reversed())
                     .findFirst().get();
         } catch (NoSuchElementException e) {

@@ -37,7 +37,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    public void should_vehicle_can_be_parking_when_there_is_no_enough_rooms_in_any_parking_lot(){
+    public void should_vehicle_can_not_be_parking_when_there_is_no_enough_rooms_in_any_parking_lot(){
         ParkingLot parkingLot = new ParkingLot(1);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         Vehicle vehicle = new Vehicle();
@@ -52,7 +52,7 @@ public class ParkingBoyTest {
     }
 
     @Test
-    public void should_know_parking_lot_is_not_full_given_any_parking_lot_is_not_enough_room() {
+    public void should_know_parking_lot_is_not_full_given_any_parking_lot_has_enough_room() {
         ParkingLot firstParkingLot = new ParkingLot(1);
         ParkingLot secondParkingLot = new ParkingLot(1);
         Vehicle firstVehicle = new Vehicle();

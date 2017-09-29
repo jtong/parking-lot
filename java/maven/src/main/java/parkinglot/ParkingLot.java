@@ -3,7 +3,7 @@ package parkinglot;
 import java.util.*;
 
 
-public class ParkingLot {
+public class ParkingLot implements Parkable{
     private int size;
     private Map<String, Vehicle> rooms;
 
