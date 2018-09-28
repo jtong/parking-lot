@@ -1,6 +1,5 @@
-package com.thoughtworks.homeworks.parkinglot.jtong.part2;
+package com.thoughtworks.homeworks.parkinglot.jtong.part3;
 
-import com.thoughtworks.homeworks.parkinglot.jtong.part2.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -36,10 +35,12 @@ public class ParkingLot {
         return this.rooms.remove(parkingTicket);
     }
 
-    // 可不可以用getVehicle替代？
     public boolean containVehicle(String parkingTicket) {
         return this.rooms.containsKey(parkingTicket);
     }
 
+    public int getLeft() {
+        return this.size - this.rooms.size();
+    }
 
 }
