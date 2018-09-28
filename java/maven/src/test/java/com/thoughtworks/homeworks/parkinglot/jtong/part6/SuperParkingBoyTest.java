@@ -1,4 +1,4 @@
-package com.thoughtworks.homeworks.parkinglot.jtong.part5;
+package com.thoughtworks.homeworks.parkinglot.jtong.part6;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -50,6 +50,7 @@ public class SuperParkingBoyTest extends ParkingBoyTest {
 
         assertThat(secondParkingLot.isFull() || firstParkingLot.getLeft() == 0, is(true));
     }
+
 
 
     @Test

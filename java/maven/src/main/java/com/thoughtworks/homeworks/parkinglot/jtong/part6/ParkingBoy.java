@@ -1,9 +1,9 @@
-package com.thoughtworks.homeworks.parkinglot.jtong.part5;
-
+package com.thoughtworks.homeworks.parkinglot.jtong.part6;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 public class ParkingBoy implements Parkable {
     protected List<ParkingLot> parkingLots;
@@ -47,5 +47,12 @@ public class ParkingBoy implements Parkable {
     @Override
     public boolean containVehicle(String parkingTicket) {
         return parkingLots.stream().anyMatch((ParkingLot parkingLot) -> parkingLot.containVehicle(parkingTicket));
+    }
+
+    @Override
+    public ParkingReport calculateParkingReport() {
+        List<ParkingReport> parkingReports = this.parkingLots.stream().map((Parkable parkable) -> parkable.calculateParkingReport()).collect(Collectors.toList());
+
+        return new ParkingReport("B", parkingReports);
     }
 }

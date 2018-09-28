@@ -1,10 +1,11 @@
-package com.thoughtworks.homeworks.parkinglot.jtong.part5;
+package com.thoughtworks.homeworks.parkinglot.jtong.part6;
 
 import java.util.Comparator;
 import java.util.NoSuchElementException;
 
-public class SuperParkingBoy extends ParkingBoy {
-    public SuperParkingBoy(ParkingLot... parkingLots) {
+public class SmartParkingBoy extends ParkingBoy {
+
+    public SmartParkingBoy(ParkingLot... parkingLots) {
         super(parkingLots);
     }
 
@@ -14,7 +15,7 @@ public class SuperParkingBoy extends ParkingBoy {
         try {
             currentParkingLot = parkingLots.stream()
                     .filter((ParkingLot parkingLot) -> !parkingLot.isFull())
-                    .sorted(Comparator.comparing(ParkingLot::getEmptyRate).reversed())
+                    .sorted(Comparator.comparing(ParkingLot::getLeft).reversed())
                     .findFirst().get();
         } catch (NoSuchElementException e) {
             throw new NoEnoughRoomsException(e);

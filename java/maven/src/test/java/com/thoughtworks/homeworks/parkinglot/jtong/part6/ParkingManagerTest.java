@@ -1,6 +1,7 @@
-package com.thoughtworks.homeworks.parkinglot.jtong.part5;
+package com.thoughtworks.homeworks.parkinglot.jtong.part6;
 
 import org.junit.Test;
+
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;

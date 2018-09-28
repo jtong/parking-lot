@@ -1,4 +1,5 @@
-package com.thoughtworks.homeworks.parkinglot.jtong.part5;
+package com.thoughtworks.homeworks.parkinglot.jtong.part6;
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -43,4 +44,8 @@ public class ParkingManager {
     }
 
 
+    public ParkingReport calculateParkingReport() {
+        List<ParkingReport> parkingReports = this.parkables.stream().map((Parkable parkable) -> parkable.calculateParkingReport()).collect(Collectors.toList());
+        return new ParkingReport("M",parkingReports);
+    }
 }

@@ -1,5 +1,4 @@
-package com.thoughtworks.homeworks.parkinglot.jtong.part5;
-
+package com.thoughtworks.homeworks.parkinglot.jtong.part6;
 
 public interface Parkable {
     String park(Vehicle vehicle) throws NoEnoughRoomsException;
@@ -10,4 +9,5 @@ public interface Parkable {
 
     boolean containVehicle(String parkingTicket);
 
+    ParkingReport calculateParkingReport();
 }

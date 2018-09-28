@@ -1,12 +1,9 @@
-package com.thoughtworks.homeworks.parkinglot.jtong.part5;
+package com.thoughtworks.homeworks.parkinglot.jtong.part6;
+
+import java.util.*;
 
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-
-
-public class ParkingLot implements Parkable {
+public class ParkingLot implements Parkable{
     private int size;
     private Map<String, Vehicle> rooms;
 
@@ -17,7 +14,7 @@ public class ParkingLot implements Parkable {
     }
 
 
-    public String park(Vehicle vehicle) throws NoEnoughRoomsException {
+    public String park(Vehicle vehicle) throws NoEnoughRoomsException{
         if (rooms.size() >= size) {
             throw new NoEnoughRoomsException();
         }
@@ -37,6 +34,12 @@ public class ParkingLot implements Parkable {
 
     public boolean containVehicle(String parkingTicket) {
         return this.rooms.containsKey(parkingTicket);
+    }
+
+    @Override
+    public ParkingReport calculateParkingReport() {
+        ParkingReport result = new ParkingReport("P", this.size -this.getLeft(), this.size);
+        return result;
     }
 
     public int getLeft() {

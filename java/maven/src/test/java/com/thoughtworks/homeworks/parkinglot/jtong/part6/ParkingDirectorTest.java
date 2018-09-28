@@ -1,8 +1,6 @@
-package com.thoughtworks.homeworks.parkinglot.jtong.part5;
+package com.thoughtworks.homeworks.parkinglot.jtong.part6;
 
-import com.thoughtworks.homeworks.parkinglot.jtong.part5.*;
 import org.junit.Test;
-import com.thoughtworks.homeworks.parkinglot.jtong.part5.*;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
