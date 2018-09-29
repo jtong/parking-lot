@@ -44,6 +44,6 @@ public class ParkingLot implements Parkable {
     }
 
     public double getEmptyRate() {
-        return this.getLeft() / this.size;
+        return this.getLeft() / (this.size * 1.0);
     }
 }

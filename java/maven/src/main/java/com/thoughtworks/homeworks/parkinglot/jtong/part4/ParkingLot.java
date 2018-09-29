@@ -44,6 +44,6 @@ public class ParkingLot {
 
     //TODO: 到底应该写一个getEmptyRate，还是暴露一个size，让SuperParkingBoy自己算EmptyRate就好了呢？
     public double getEmptyRate() {
-        return this.getLeft() / this.size;
+        return this.getLeft() / (this.size * 1.0);
     }
 }
