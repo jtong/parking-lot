@@ -1,5 +1,7 @@
 package com.thoughtworks.homeworks.parkinglot.jtong.part6;
 
-public interface ParkingBoyFactory {
-    ParkingBoy makeParkingBoy(ParkingLot... parkingLots);
+public class ParkingBoyFactory  {
+    public ParkingBoy makeParkingBoy(ParkingLot... parkingLots) {
+        return new ParkingBoy(parkingLots);
+    }
 }

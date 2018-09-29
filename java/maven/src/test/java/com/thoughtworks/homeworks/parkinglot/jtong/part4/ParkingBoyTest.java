@@ -15,7 +15,7 @@ public class ParkingBoyTest {
 
     @Before
     public void before(){
-        parkingBoyFactory = new NormalParkingBoyFactory();
+        parkingBoyFactory = new ParkingBoyFactory();
     }
 
     @Test
