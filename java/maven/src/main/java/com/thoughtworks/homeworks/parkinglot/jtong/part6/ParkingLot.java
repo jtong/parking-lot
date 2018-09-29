@@ -3,7 +3,7 @@ package com.thoughtworks.homeworks.parkinglot.jtong.part6;
 import java.util.*;
 
 
-public class ParkingLot implements Parkable{
+public class ParkingLot implements Parkable, ReportingParkable {
     private int size;
     private Map<String, Vehicle> rooms;
 

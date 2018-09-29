@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
-public class ParkingBoy implements Parkable {
+public class ParkingBoy implements ReportingParkable {
     protected List<ParkingLot> parkingLots;
 
     public ParkingBoy(ParkingLot... parkingLots) {
@@ -51,7 +51,7 @@ public class ParkingBoy implements Parkable {
 
     @Override
     public ParkingReport calculateParkingReport() {
-        List<ParkingReport> parkingReports = this.parkingLots.stream().map((Parkable parkable) -> parkable.calculateParkingReport()).collect(Collectors.toList());
+        List<ParkingReport> parkingReports = this.parkingLots.stream().map((ReportingParkable reporter) -> reporter.calculateParkingReport()).collect(Collectors.toList());
 
         return new ParkingReport("B", parkingReports);
     }

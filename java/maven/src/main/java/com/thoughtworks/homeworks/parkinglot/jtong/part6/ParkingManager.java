@@ -8,15 +8,15 @@ import java.util.stream.Collectors;
 
 public class ParkingManager {
 
-    private List<Parkable> parkables;
+    private List<ReportingParkable> parkables;
 
-    public ParkingManager(Parkable... parkables) {
+    public ParkingManager(ReportingParkable... parkables) {
         this.parkables = Arrays.asList(parkables);
     }
 
 
     public String park(Vehicle vehicle) throws NoEnoughRoomsException {
-        Parkable currentParkable = null;
+        ReportingParkable currentParkable = null;
         try {
             currentParkable = parkables.stream()
                     .filter((Parkable parkable) -> !parkable.isFull())
@@ -28,11 +28,11 @@ public class ParkingManager {
     }
 
     public boolean isFull() {
-        return parkables.stream().allMatch((Parkable parkable) -> parkable.isFull());
+        return parkables.stream().allMatch((ReportingParkable parkable) -> parkable.isFull());
     }
 
     public Vehicle getVehicle(String parkingTicket) {
-        Parkable currentParkable = null;
+        ReportingParkable currentParkable = null;
         try {
             currentParkable = parkables.stream()
                     .filter((Parkable parkingLot) -> parkingLot.containVehicle(parkingTicket))
@@ -45,7 +45,7 @@ public class ParkingManager {
 
 
     public ParkingReport calculateParkingReport() {
-        List<ParkingReport> parkingReports = this.parkables.stream().map((Parkable parkable) -> parkable.calculateParkingReport()).collect(Collectors.toList());
+        List<ParkingReport> parkingReports = this.parkables.stream().map((ReportingParkable reporter) -> reporter.calculateParkingReport()).collect(Collectors.toList());
         return new ParkingReport("M",parkingReports);
     }
 }

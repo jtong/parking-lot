@@ -74,6 +74,5 @@ public class SuperParkingBoyTest extends ParkingBoyTest {
         assertThat(firstParkingLot.getLeft(), is(4));
         assertThat(secondParkingLot.getLeft(), is(2));
 
-
     }
 }

@@ -14,8 +14,8 @@ public class ParkingManagerTest {
 
     @Test
     public void should_vehicle_can_be_parking_when_there_is_enough_rooms_in_any_packable_object(){
-        Parkable parkingLot = new ParkingLot(1);
-        Parkable parkingBoy = new ParkingBoy(new ParkingLot(1));
+        ReportingParkable parkingLot = new ParkingLot(1);
+        ReportingParkable parkingBoy = new ParkingBoy(new ParkingLot(1));
         Vehicle firstVehicle = new Vehicle();
         Vehicle secondVehicle = new Vehicle();
 
@@ -31,8 +31,8 @@ public class ParkingManagerTest {
 
     @Test
     public void should_tell_full_when_there_is_no_any_rooms_in_any_packable_object(){
-        Parkable parkingLot = new ParkingLot(1);
-        Parkable parkingBoy = new ParkingBoy(new ParkingLot(1));
+        ReportingParkable parkingLot = new ParkingLot(1);
+        ReportingParkable parkingBoy = new ParkingBoy(new ParkingLot(1));
         Vehicle firstVehicle = new Vehicle();
         Vehicle secondVehicle = new Vehicle();
 
@@ -45,8 +45,8 @@ public class ParkingManagerTest {
 
     @Test
     public void should_not_tell_full_when_there_is_any_rooms_in_any_packable_object(){
-        Parkable parkingLot = new ParkingLot(1);
-        Parkable parkingBoy = new ParkingBoy(new ParkingLot(1));
+        ReportingParkable parkingLot = new ParkingLot(1);
+        ReportingParkable parkingBoy = new ParkingBoy(new ParkingLot(1));
         Vehicle vehicle = new Vehicle();
 
         ParkingManager parkingManager = new ParkingManager(parkingLot, parkingBoy);
@@ -63,8 +63,8 @@ public class ParkingManagerTest {
 
     @Test
     public void should_get_parked_vehicle_with_ticket_after_parking_in_any_parking_lot(){
-        Parkable parkingLot = new ParkingLot(1);
-        Parkable parkingBoy = new ParkingBoy(new ParkingLot(1));
+        ReportingParkable parkingLot = new ParkingLot(1);
+        ReportingParkable parkingBoy = new ParkingBoy(new ParkingLot(1));
         Vehicle firstVehicle = new Vehicle();
         Vehicle secondVehicle = new Vehicle();
 
@@ -82,8 +82,8 @@ public class ParkingManagerTest {
 
     @Test
     public void should_vehicle_can_not_be_parking_when_there_is_no_enough_rooms_in_any_parkable_object(){
-        Parkable parkingLot = new ParkingLot(1);
-        Parkable parkingBoy = new ParkingBoy(new ParkingLot(1));
+        ReportingParkable parkingLot = new ParkingLot(1);
+        ReportingParkable parkingBoy = new ParkingBoy(new ParkingLot(1));
         Vehicle firstVehicle = new Vehicle();
         Vehicle secondVehicle = new Vehicle();
         Vehicle thirdVehicle = new Vehicle();
@@ -103,8 +103,8 @@ public class ParkingManagerTest {
 
     @Test
     public void should_get_null_with_ticket_which_is_not_exist() {
-        Parkable parkingLot = new ParkingLot(1);
-        Parkable parkingBoy = new ParkingBoy(new ParkingLot(1));
+        ReportingParkable parkingLot = new ParkingLot(1);
+        ReportingParkable parkingBoy = new ParkingBoy(new ParkingLot(1));
         ParkingManager parkingManager = new ParkingManager(parkingLot, parkingBoy);
 
         Vehicle firstVehicle = new Vehicle();
@@ -120,8 +120,8 @@ public class ParkingManagerTest {
 
     @Test
     public void should_one_ticket_can_only_get_once(){
-        Parkable parkingLot = new ParkingLot(1);
-        Parkable parkingBoy = new ParkingBoy(new ParkingLot(1));
+        ReportingParkable parkingLot = new ParkingLot(1);
+        ReportingParkable parkingBoy = new ParkingBoy(new ParkingLot(1));
         ParkingManager parkingManager = new ParkingManager(parkingLot, parkingBoy);
 
         Vehicle firstVehicle = new Vehicle();
@@ -137,8 +137,8 @@ public class ParkingManagerTest {
 
     @Test
     public void should_vehicle_can_be_parked_when_parking_lot_which_was_full_is_gotten_a_vehicle() {
-        Parkable parkingLot = new ParkingLot(1);
-        Parkable parkingBoy = new ParkingBoy(new ParkingLot(1));
+        ReportingParkable parkingLot = new ParkingLot(1);
+        ReportingParkable parkingBoy = new ParkingBoy(new ParkingLot(1));
         ParkingManager parkingManager = new ParkingManager(parkingLot, parkingBoy);
 
         Vehicle firstVehicle = new Vehicle();
@@ -156,10 +156,10 @@ public class ParkingManagerTest {
     
     @Test
     public void should_all_parkable_object_can_be_managed_to_park(){
-        Parkable parkingLot = new ParkingLot(1);
-        Parkable parkingBoy = new ParkingBoy(new ParkingLot(1));
-        Parkable smartParkingBoy = new SmartParkingBoy(new ParkingLot(1));
-        Parkable superParkingBoy = new SuperParkingBoy(new ParkingLot(1));
+        ReportingParkable parkingLot = new ParkingLot(1);
+        ReportingParkable parkingBoy = new ParkingBoy(new ParkingLot(1));
+        ReportingParkable smartParkingBoy = new SmartParkingBoy(new ParkingLot(1));
+        ReportingParkable superParkingBoy = new SuperParkingBoy(new ParkingLot(1));
         Vehicle firstVehicle = new Vehicle();
         Vehicle secondVehicle = new Vehicle();
         Vehicle thirdVehicle = new Vehicle();
@@ -185,10 +185,10 @@ public class ParkingManagerTest {
 
     @Test
     public void should_all_parkable_object_can_be_managed_to_get_vehicle() {
-        Parkable parkingLot = new ParkingLot(1);
-        Parkable parkingBoy = new ParkingBoy(new ParkingLot(1));
-        Parkable smartParkingBoy = new SmartParkingBoy(new ParkingLot(1));
-        Parkable superParkingBoy = new SuperParkingBoy(new ParkingLot(1));
+        ReportingParkable parkingLot = new ParkingLot(1);
+        ReportingParkable parkingBoy = new ParkingBoy(new ParkingLot(1));
+        ReportingParkable smartParkingBoy = new SmartParkingBoy(new ParkingLot(1));
+        ReportingParkable superParkingBoy = new SuperParkingBoy(new ParkingLot(1));
         Vehicle firstVehicle = new Vehicle();
         Vehicle secondVehicle = new Vehicle();
         Vehicle thirdVehicle = new Vehicle();
