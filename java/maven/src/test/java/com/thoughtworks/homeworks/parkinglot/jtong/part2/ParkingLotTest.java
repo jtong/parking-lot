@@ -56,7 +56,7 @@ public class ParkingLotTest {
 
         Vehicle firstVehicle = new Vehicle();
         Vehicle secondVehicle = new Vehicle();
-        String parkingTicket = parkingLot.park(firstVehicle);
+        Ticket parkingTicket = parkingLot.park(firstVehicle);
         parkingLot.park(secondVehicle);
 
         assertThat(parkingLot.getVehicle(parkingTicket), is(firstVehicle));
@@ -70,7 +70,7 @@ public class ParkingLotTest {
         Vehicle secondVehicle = new Vehicle();
         parkingLot.park(firstVehicle);
         parkingLot.park(secondVehicle);
-        String parkingTicket = "123";
+        Ticket parkingTicket = new Ticket("123");
 
         assertThat(parkingLot.getVehicle(parkingTicket), is(nullValue()));
     }
@@ -82,7 +82,7 @@ public class ParkingLotTest {
         Vehicle secondVehicle = new Vehicle();
 
         try {
-            String parkingTicket = parkingLot.park(firstVehicle);
+            Ticket parkingTicket = parkingLot.park(firstVehicle);
             parkingLot.getVehicle(parkingTicket);
             parkingLot.park(secondVehicle);
         } catch (NoEnoughRoomsException e) {
@@ -95,7 +95,7 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot(2);
 
         Vehicle vehicle = new Vehicle();
-        String parkingTicket = parkingLot.park(vehicle);
+        Ticket parkingTicket = parkingLot.park(vehicle);
 
         assertThat(parkingLot.containVehicle(parkingTicket), is(true));
     }

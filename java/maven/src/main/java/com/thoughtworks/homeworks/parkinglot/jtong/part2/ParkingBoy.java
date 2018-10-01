@@ -14,7 +14,7 @@ public class ParkingBoy {
         this.parkingLots = Arrays.asList(parkingLots);
     }
 
-    public String park(Vehicle vehicle) throws NoEnoughRoomsException {
+    public Ticket park(Vehicle vehicle) throws NoEnoughRoomsException {
 
         ParkingLot currentParkingLot = null;
         try {
@@ -32,7 +32,7 @@ public class ParkingBoy {
         return parkingLots.stream().allMatch((ParkingLot parkingLot) -> parkingLot.isFull());
     }
 
-    public Vehicle getVehicle(String parkingTicket) {
+    public Vehicle getVehicle(Ticket parkingTicket) {
         ParkingLot currentParkingLot = null;
         try {
             currentParkingLot = parkingLots.stream()
@@ -44,7 +44,7 @@ public class ParkingBoy {
         return currentParkingLot.getVehicle(parkingTicket);
     }
 
-    public boolean containVehicle(String parkingTicket) {
+    public boolean containVehicle(Ticket parkingTicket) {
         return parkingLots.stream().anyMatch((ParkingLot parkingLot) -> parkingLot.containVehicle(parkingTicket));
     }
 

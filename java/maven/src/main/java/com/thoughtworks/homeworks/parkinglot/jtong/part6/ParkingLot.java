@@ -18,10 +18,10 @@ public class ParkingLot implements Parkable, ReportingParkable {
         if (rooms.size() >= size) {
             throw new NoEnoughRoomsException();
         }
-        String parkingTiket = UUID.randomUUID().toString();
+        String parkingTicket = UUID.randomUUID().toString();
 
-        this.rooms.put(parkingTiket,vehicle);
-        return parkingTiket;
+        this.rooms.put(parkingTicket,vehicle);
+        return parkingTicket;
     }
 
     public boolean isFull() {
