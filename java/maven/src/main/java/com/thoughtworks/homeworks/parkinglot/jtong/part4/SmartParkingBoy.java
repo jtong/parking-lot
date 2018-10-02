@@ -10,7 +10,7 @@ public class SmartParkingBoy extends ParkingBoy {
         super(parkingLots);
     }
 
-    public String park(Vehicle vehicle) throws NoEnoughRoomsException {
+    public Ticket park(Vehicle vehicle) throws NoEnoughRoomsException {
         ParkingLot currentParkingLot = null;
         try {
             currentParkingLot = parkingLots.stream()

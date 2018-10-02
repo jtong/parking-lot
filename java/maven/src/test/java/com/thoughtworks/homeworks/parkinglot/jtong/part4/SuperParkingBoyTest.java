@@ -64,7 +64,7 @@ public class SuperParkingBoyTest extends ParkingBoyTest {
 
         assertThat(firstParkingLot.getLeft(), is(4));
 
-        String ticket = parkingBoy.park(vehicle);
+        Ticket ticket = parkingBoy.park(vehicle);
         assertThat(firstParkingLot.getLeft(), is(4));
         assertThat(secondParkingLot.getLeft(), is(2));
 

@@ -89,7 +89,7 @@ public class ParkingBoyTest {
         Vehicle secondVehicle = new Vehicle();
 
         parkingBoy.park(firstVehicle);
-        String parkingTicket = parkingBoy.park(secondVehicle);
+        Ticket parkingTicket = parkingBoy.park(secondVehicle);
 
         Vehicle vehicleFromParkingLot = parkingBoy.getVehicle(parkingTicket);
         assertThat(vehicleFromParkingLot, not(firstVehicle));
@@ -107,7 +107,7 @@ public class ParkingBoyTest {
 
         parkingBoy.park(firstVehicle);
         parkingBoy.park(secondVehicle);
-        String parkingTicket = "123";
+        Ticket parkingTicket = new Ticket("123");
 
         assertThat(parkingBoy.getVehicle(parkingTicket), is(nullValue()));
     }
@@ -121,7 +121,7 @@ public class ParkingBoyTest {
         Vehicle firstVehicle = new Vehicle();
         Vehicle secondVehicle = new Vehicle();
 
-        String parkingTicket = parkingBoy.park(firstVehicle);
+        Ticket parkingTicket = parkingBoy.park(firstVehicle);
         parkingBoy.park(secondVehicle);
 
         assertThat(parkingBoy.getVehicle(parkingTicket), is(firstVehicle));
@@ -140,7 +140,7 @@ public class ParkingBoyTest {
 
 
         try {
-            String parkingTicket = parkingBoy.park(firstVehicle);
+            Ticket parkingTicket = parkingBoy.park(firstVehicle);
             parkingBoy.park(secondVehicle);
             parkingBoy.getVehicle(parkingTicket);
             parkingBoy.park(firstVehicle);
