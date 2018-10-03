@@ -14,7 +14,7 @@ public class ParkingManager {
     }
 
 
-    public String park(Vehicle vehicle) throws NoEnoughRoomsException {
+    public Ticket park(Vehicle vehicle) throws NoEnoughRoomsException {
         Parkable currentParkable = null;
         try {
             currentParkable = parkables.stream()
@@ -30,7 +30,7 @@ public class ParkingManager {
         return parkables.stream().allMatch((Parkable parkable) -> parkable.isFull());
     }
 
-    public Vehicle getVehicle(String parkingTicket) {
+    public Vehicle getVehicle(Ticket parkingTicket) {
         Parkable currentParkable = null;
         try {
             currentParkable = parkables.stream()

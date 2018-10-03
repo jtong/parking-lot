@@ -69,7 +69,7 @@ public class ParkingManagerTest {
 
         ParkingManager parkingManager = new ParkingManager(parkingLot, parkingBoy);
 
-        String firstTicket = parkingManager.park(firstVehicle);
+        Ticket firstTicket = parkingManager.park(firstVehicle);
         parkingManager.park(secondVehicle);
 
 
@@ -111,7 +111,7 @@ public class ParkingManagerTest {
 
         parkingManager.park(firstVehicle);
         parkingManager.park(secondVehicle);
-        String parkingTicket = "123";
+        Ticket parkingTicket = new Ticket("123");
 
         assertThat(parkingManager.getVehicle(parkingTicket), is(nullValue()));
     }
@@ -126,7 +126,7 @@ public class ParkingManagerTest {
         Vehicle firstVehicle = new Vehicle();
         Vehicle secondVehicle = new Vehicle();
 
-        String parkingTicket =parkingManager.park(firstVehicle);
+        Ticket parkingTicket =parkingManager.park(firstVehicle);
         parkingManager.park(secondVehicle);
 
 
@@ -144,7 +144,7 @@ public class ParkingManagerTest {
         Vehicle secondVehicle = new Vehicle();
 
         try {
-            String parkingTicket = parkingManager.park(firstVehicle);
+            Ticket parkingTicket = parkingManager.park(firstVehicle);
             parkingManager.park(secondVehicle);
             parkingManager.getVehicle(parkingTicket);
             parkingManager.park(firstVehicle);
@@ -195,10 +195,10 @@ public class ParkingManagerTest {
 
         ParkingManager parkingManager = new ParkingManager(parkingLot, parkingBoy, smartParkingBoy, superParkingBoy);
 
-        String firstTicket = parkingManager.park(firstVehicle);
-        String secondTicket = parkingManager.park(secondVehicle);
-        String thirdTicket = parkingManager.park(thirdVehicle);
-        String fourthTicket = parkingManager.park(fourthVehicle);
+        Ticket firstTicket = parkingManager.park(firstVehicle);
+        Ticket secondTicket = parkingManager.park(secondVehicle);
+        Ticket thirdTicket = parkingManager.park(thirdVehicle);
+        Ticket fourthTicket = parkingManager.park(fourthVehicle);
 
 
         assertThat(parkingManager.getVehicle(firstTicket), is(firstVehicle));

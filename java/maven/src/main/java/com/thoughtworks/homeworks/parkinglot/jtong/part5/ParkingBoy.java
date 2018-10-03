@@ -13,7 +13,7 @@ public class ParkingBoy implements Parkable {
     }
 
     @Override
-    public String park(Vehicle vehicle) throws NoEnoughRoomsException {
+    public Ticket park(Vehicle vehicle) throws NoEnoughRoomsException {
 
         ParkingLot currentParkingLot = null;
         try {
@@ -32,7 +32,7 @@ public class ParkingBoy implements Parkable {
     }
 
     @Override
-    public Vehicle getVehicle(String parkingTicket) {
+    public Vehicle getVehicle(Ticket parkingTicket) {
         ParkingLot currentParkingLot = null;
         try {
             currentParkingLot = parkingLots.stream()
@@ -45,7 +45,7 @@ public class ParkingBoy implements Parkable {
     }
 
     @Override
-    public boolean containVehicle(String parkingTicket) {
+    public boolean containVehicle(Ticket parkingTicket) {
         return parkingLots.stream().anyMatch((ParkingLot parkingLot) -> parkingLot.containVehicle(parkingTicket));
     }
 }
