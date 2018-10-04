@@ -5,20 +5,20 @@ import java.util.*;
 
 public class ParkingLot implements Parkable, ReportingParkable {
     private int size;
-    private Map<String, Vehicle> rooms;
+    private Map<Ticket, Vehicle> rooms;
 
 
     public ParkingLot(int size) {
         this.size = size;
-        rooms = new HashMap<String, Vehicle>();
+        rooms = new HashMap<Ticket, Vehicle>();
     }
 
 
-    public String park(Vehicle vehicle) throws NoEnoughRoomsException{
+    public Ticket park(Vehicle vehicle) throws NoEnoughRoomsException {
         if (rooms.size() >= size) {
             throw new NoEnoughRoomsException();
         }
-        String parkingTicket = UUID.randomUUID().toString();
+        Ticket parkingTicket = new Ticket(UUID.randomUUID().toString());
 
         this.rooms.put(parkingTicket,vehicle);
         return parkingTicket;
@@ -28,25 +28,28 @@ public class ParkingLot implements Parkable, ReportingParkable {
         return size <= rooms.size();
     }
 
-    public Vehicle getVehicle(String parkingTicket) {
+    public Vehicle getVehicle(Ticket parkingTicket) {
         return this.rooms.remove(parkingTicket);
     }
 
-    public boolean containVehicle(String parkingTicket) {
+    //TODO: 可不可以用getVehicle替代？
+    public boolean containVehicle(Ticket parkingTicket) {
         return this.rooms.containsKey(parkingTicket);
+    }
+
+
+    public int getLeft() {
+        return this.size - this.rooms.size();
+    }
+
+    //TODO: 到底应该写一个getEmptyRate，还是暴露一个size，让SuperParkingBoy自己算EmptyRate就好了呢？
+    public double getEmptyRate() {
+        return this.getLeft() / (this.size * 1.0);
     }
 
     @Override
     public ParkingReport calculateParkingReport() {
         ParkingReport result = new ParkingReport("P", this.size -this.getLeft(), this.size);
         return result;
-    }
-
-    public int getLeft() {
-        return this.size - this.rooms.size();
-    }
-
-    public double getEmptyRate() {
-        return this.getLeft() / (this.size * 1.0);
     }
 }

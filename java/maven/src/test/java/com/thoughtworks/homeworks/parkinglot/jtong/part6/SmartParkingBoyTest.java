@@ -55,7 +55,7 @@ public class SmartParkingBoyTest extends ParkingBoyTest{
 
         SmartParkingBoy parkingBoy = new SmartParkingBoy(firstParkingLot, secondParkingLot);
 
-        String ticket = parkingBoy.park(vehicle);
+        Ticket ticket = parkingBoy.park(vehicle);
         assertThat(firstParkingLot.isFull(), is(false));
         assertThat(secondParkingLot.getLeft(), is(1));
 

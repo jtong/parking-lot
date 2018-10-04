@@ -48,7 +48,7 @@ public class ParkingDirectorTest {
         firstParkingBoy.park(vehicle);
 
         ParkingBoy secondParkingBoy = new SuperParkingBoy(new ParkingLot(3), new ParkingLot(2));
-        String ticket = secondParkingBoy.park(vehicle);
+        Ticket ticket = secondParkingBoy.park(vehicle);
         secondParkingBoy.park(vehicle);
         secondParkingBoy.getVehicle(ticket);
 
